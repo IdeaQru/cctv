@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CCTV21 Feed</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CCTV21 Feed - Image Update</h1>
+
+  <!-- Image element to display the CCTV feed -->
+  <img id="cctvImage" src="http://cctv.priokport.co.id/img?ch=9&303" alt="CCTV Feed">
+
+  <script>
+    let imageIndex = 303; // Start from 303
+    const imageElement = document.getElementById('cctvImage');
+
+    // Function to update the image source
+    function updateImage() {
+      imageIndex++; // Increment the index for the next image
+      imageElement.src = `http://cctv.priokport.co.id/img?ch=9&${imageIndex}`; // Update the image source with the new index
+    }
+
+    // Update the image every 5 seconds (5000 ms)
+    setInterval(updateImage, 5000);
+  </script>
+</body>
+</html>

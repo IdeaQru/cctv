@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CCTV31 Feed - Frame Capture</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    video {
+      width: 100%;
+      max-width: 800px;
+      height: 300px;
+      margin-bottom: 20px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+
+    canvas {
+      border: 2px solid #ddd;
+      margin-top: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>CCTV31 Feed - Frame Capture</h1>
+  <p>Frame capture from the CCTV feed every 2 seconds.</p>
+
+  <!-- Video element -->
+  <video id="video_10209_2062" controls style="display:none;">
+    <source src="https://pantausemar.semarangkota.go.id/29f4f47b-ef7e-455e-9356-d1c079e1d8f2" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  blob:https://pantausemar.semarangkota.go.id/8e1fdf91-51a2-419d-a731-a5072314ebd3
+  <!-- Canvas element to display captured frames -->
+  <canvas id="videoCanvas" width="800" height="300"></canvas>
+
+  <script>
+    // Get video and canvas elements
+    const video = document.getElementById('video_10209_2062');
+    const canvas = document.getElementById('videoCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Start video playback when the page is loaded
+    video.play();
+
+    // Function to capture a frame from the video
+    function captureFrame() {
+      // Draw the current frame of the video to the canvas
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    }
+
+    // Set an interval to capture and update the frame every 2 seconds (2000 ms)
+    setInterval(captureFrame, 2000);
+  </script>
+</body>
+</html>
